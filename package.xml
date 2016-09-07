@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>hector_chilitag_description</name>
+  <version>0.0.0</version>
+  <description>The hector_chilitag_description package</description>
+
+  <maintainer email="ros@martinoehler.de">Martin Oehler</maintainer>
+
+  <license>BSD</license>
+
+  <!-- <url type="website">http://wiki.ros.org/hector_chilitag_description</url> -->
+
+  <author email="ros@martinoehler.de">Martin Oehler</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <export>
+  </export>
+</package>
