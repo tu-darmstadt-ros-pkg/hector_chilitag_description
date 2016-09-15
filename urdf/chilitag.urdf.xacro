@@ -19,13 +19,13 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 -1.57079632679 0"/>
         <geometry>
-          <mesh scale="1 1.66 1.66" filename="package://vigir_ar_alvar_description/meshes/${name}.dae"/>
+          <mesh scale="1 1.66 1.66" filename="package://hector_chilitag_description/meshes/${name}.dae"/>
         </geometry>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="1 1.66 1.66" filename="package://vigir_ar_alvar_description/meshes/${name}.dae"/>
+          <mesh scale="1 1.66 1.66" filename="package://hector_chilitag_description/meshes/${name}.dae"/>
         </geometry>
       </collision>
     </link>
