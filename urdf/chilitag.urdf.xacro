@@ -2,6 +2,38 @@
 
 <robot xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" name="artag" >
 
+  
+  <xacro:macro name="artag_visual_sized" params="name size *origin">
+    <visual>
+      <xacro:insert_block name="origin" />
+      <geometry>
+        <mesh scale="${size} ${size} ${size}" filename="package://hector_chilitag_description/meshes/${name}.dae"/>
+      </geometry>
+    </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="artag_no_geom" params="name size parent *origin">
+    
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+      
+    <link name="${name}_link">      
+    </link>
+ 
+    <gazebo reference="${name}_link">
+      <!--      
+      <material>artag/${name}</material>
+      <turnGravityOff>false</turnGravityOff>
+      <static>false</static>
+      -->
+    </gazebo>
+    
+  </xacro:macro>
+  
+  
   <xacro:macro name="artag" params="name size parent *origin">
     
     <joint name="${name}_joint" type="fixed">
@@ -16,46 +48,28 @@
         <mass value="0.01" />
         <inertia  ixx="0.00000001" ixy="0.0"  ixz="0.0"  iyy="0.00000001"  iyz="0.0"  izz="0.00000001" />
       </inertial>
+      
+      <xacro:artag_visual_sized name="${name}" size="${size}">
+        <origin xyz="0 0 0" rpy="0 -1.57079632679 0"/>
+      </xacro:artag_visual_sized>
+      <!--
       <visual>
         <origin xyz="0 0 0" rpy="0 -1.57079632679 0"/>
         <geometry>
           <mesh scale="${size} ${size} ${size}" filename="package://hector_chilitag_description/meshes/${name}.dae"/>
         </geometry>
       </visual>
+      -->
+      <!--
       <collision>
         <origin xyz="0 0 0" rpy="0 -1.57079632679 0"/>
         <geometry>
           <mesh scale="${size} ${size} ${size}" filename="package://hector_chilitag_description/meshes/${name}.dae"/>
         </geometry>
       </collision>
+      -->
     </link>
-  
-     <joint name="${name}_background_joint" type="fixed">
-      <origin xyz="0 0 -0.001" rpy="0 0 0" />
-      <parent link="${name}_link"/>
-      <child link="${name}_background_link"/>
-    </joint>
-    
-    <link name="${name}_background_link">
-      <inertial>
-        <origin xyz="0 0 0" /> 
-        <mass value="0.01" />
-        <inertia  ixx="0.00000001" ixy="0.0"  ixz="0.0"  iyy="0.00000001"  iyz="0.0"  izz="0.00000001" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="${size + 0.015} ${size + 0.015} 0.001" />
-        </geometry>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="${size + 0.015} ${size + 0.015} 0.001" />
-        </geometry>
-      </collision>
-    </link>
-
+ 
     <gazebo reference="${name}_link">
       <!--      
       <material>artag/${name}</material>
@@ -64,15 +78,9 @@
       -->
     </gazebo>
     
-    <gazebo reference="${name}_background_link">
-      <material>Gazebo/White</material>
-      <!--
-      <turnGravityOff>false</turnGravityOff>
-      <static>false</static>
-      -->
-    </gazebo>
-   
-    
   </xacro:macro>
+  
+  
+  
   
 </robot>
