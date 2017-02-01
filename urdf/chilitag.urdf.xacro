@@ -69,5 +69,30 @@
     </gazebo>
     
   </xacro:macro>
+  
+    <xacro:macro name="chilitag3d" params="name size parent *origin">
+    
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+      
+    <link name="${name}_link">
+      <inertial>
+        <origin xyz="0 0 0" /> 
+        <mass value="0.01" />
+        <inertia  ixx="0.00000001" ixy="0.0"  ixz="0.0"  iyy="0.00000001"  iyz="0.0"  izz="0.00000001" />
+      </inertial>
+      
+      <xacro:chilitag_visual_sized name="${name}" size="${size}">
+        <origin xyz="${size/2} ${size/2} 0" rpy="${-M_PI/2} ${M_PI/2} ${M_PI}"/>
+      </xacro:chilitag_visual_sized>
+    </link>
+ 
+    <gazebo reference="${name}_link">
+    </gazebo>
+    
+  </xacro:macro>
     
 </robot>
