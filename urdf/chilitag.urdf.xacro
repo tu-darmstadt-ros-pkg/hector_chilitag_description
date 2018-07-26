@@ -88,26 +88,42 @@
       <xacro:chilitag_visual_sized name="${name}" size="${size}">
         <origin xyz="${size/2} ${size/2} 0" rpy="0 -1.57079632679 0"/>
       </xacro:chilitag_visual_sized>
-      <!--
-      <visual>
-        <origin xyz="0 0 0" rpy="0 -1.57079632679 0"/>
-        <geometry>
-          <mesh scale="${size} ${size} ${size}" filename="package://hector_chilitag_description/meshes/${name}.dae"/>
-        </geometry>
-      </visual>
-      -->
-      <!--
-      <collision>
-        <origin xyz="0 0 0" rpy="0 -1.57079632679 0"/>
-        <geometry>
-          <mesh scale="${size} ${size} ${size}" filename="package://hector_chilitag_description/meshes/${name}.dae"/>
-        </geometry>
-      </collision>
-      -->
     </link>
 
     <gazebo reference="${name}_link">
     </gazebo>
+
+  </xacro:macro>
+
+  <xacro:macro name="chilitag_4_set" params="name_start offset_x offset_y offset_z offset_tag size parent">
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x}
+                     ${offset_y}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 1}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x}
+                     ${offset_y + offset_tag}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 2}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag}
+                     ${offset_y}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 3}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag}
+                     ${offset_y + offset_tag}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
 
   </xacro:macro>
   
