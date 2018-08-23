@@ -127,6 +127,73 @@
 
   </xacro:macro>
 
+  <xacro:macro name="chilitag_9_set" params="name_start offset_x offset_y offset_z offset_tag size parent">
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x}
+                     ${offset_y}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 1}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x}
+                     ${offset_y + offset_tag}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 2}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x}
+                     ${offset_y + offset_tag * 2}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 3}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag}
+                     ${offset_y}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 4}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag}
+                     ${offset_y + offset_tag}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 5}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag}
+                     ${offset_y + offset_tag * 2}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 6}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag * 2}
+                     ${offset_y}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 7}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag * 2}
+                     ${offset_y + offset_tag}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+      <xacro:chilitag_origin_in_corner name="chilitag${name_start + 8}" size="${size}" parent="${parent}">
+        <origin xyz="${offset_x + offset_tag * 2}
+                     ${offset_y + offset_tag * 2}
+                     ${offset_z}"
+                rpy="0 0 0"/>
+      </xacro:chilitag_origin_in_corner>
+
+  </xacro:macro>
+
   <xacro:macro name="poi" params="name_start offset_tag size parent">
 
       <xacro:property name="offset_set_1_x" value="0.6043" />
@@ -149,20 +216,20 @@
       <xacro:property name="offset_set_5_y" value="0.6243" />
       <xacro:property name="offset_set_5_z" value="0.0002" />
 
-      <xacro:chilitag_4_set name_start="${name_start}" offset_x="${offset_set_1_x}" offset_y="${offset_set_1_y}" offset_z="${offset_set_1_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
-      </xacro:chilitag_4_set>
+      <xacro:chilitag_9_set name_start="${name_start}" offset_x="${offset_set_1_x}" offset_y="${offset_set_1_y}" offset_z="${offset_set_1_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
+      </xacro:chilitag_9_set>
 
-      <xacro:chilitag_4_set name_start="${name_start + 4}" offset_x="${offset_set_2_x}" offset_y="${offset_set_2_y}" offset_z="${offset_set_2_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
-      </xacro:chilitag_4_set>
+      <xacro:chilitag_9_set name_start="${name_start + 9}" offset_x="${offset_set_2_x}" offset_y="${offset_set_2_y}" offset_z="${offset_set_2_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
+      </xacro:chilitag_9_set>
 
-      <xacro:chilitag_4_set name_start="${name_start + 8}" offset_x="${offset_set_3_x}" offset_y="${offset_set_3_y}" offset_z="${offset_set_3_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
-      </xacro:chilitag_4_set>
+      <xacro:chilitag_9_set name_start="${name_start + 18}" offset_x="${offset_set_3_x}" offset_y="${offset_set_3_y}" offset_z="${offset_set_3_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
+      </xacro:chilitag_9_set>
 
-      <xacro:chilitag_4_set name_start="${name_start + 12}" offset_x="${offset_set_4_x}" offset_y="${offset_set_4_y}" offset_z="${offset_set_4_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
-      </xacro:chilitag_4_set>
+      <xacro:chilitag_9_set name_start="${name_start + 27}" offset_x="${offset_set_4_x}" offset_y="${offset_set_4_y}" offset_z="${offset_set_4_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
+      </xacro:chilitag_9_set>
 
-      <xacro:chilitag_4_set name_start="${name_start + 16}" offset_x="${offset_set_5_x}" offset_y="${offset_set_5_y}" offset_z="${offset_set_5_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
-      </xacro:chilitag_4_set>
+      <xacro:chilitag_9_set name_start="${name_start + 36}" offset_x="${offset_set_5_x}" offset_y="${offset_set_5_y}" offset_z="${offset_set_5_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
+      </xacro:chilitag_9_set>
 
   </xacro:macro>
   
