@@ -217,6 +217,9 @@
       <xacro:property name="offset_set_7_x" value="-0.6145" />
       <xacro:property name="offset_set_7_y" value="-0.6145" />
 
+      <xacro:property name="offset_set_8_x" value="-0.7895" />
+      <xacro:property name="offset_set_8_y" value="-0.0895" />
+
       <xacro:chilitag_9_set name_start="${name_start}" offset_x="${offset_set_1_x}" offset_y="${offset_set_1_y}" offset_z="${offset_set_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
       </xacro:chilitag_9_set>
 
@@ -236,6 +239,9 @@
       </xacro:chilitag_9_set>
 
       <xacro:chilitag_9_set name_start="${name_start + 54}" offset_x="${offset_set_7_x}" offset_y="${offset_set_7_y}" offset_z="${offset_set_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
+      </xacro:chilitag_9_set>
+
+      <xacro:chilitag_9_set name_start="${name_start - 9}" offset_x="${offset_set_8_x}" offset_y="${offset_set_8_y}" offset_z="${offset_set_z}" offset_tag="${offset_tag}" size="${size}" parent="${parent}">
       </xacro:chilitag_9_set>
 
   </xacro:macro>
